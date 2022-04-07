@@ -1,0 +1,21 @@
+1.Write a query to display the orders placed by customer with phone number 9999999999.
+SELECT CUSTOMER.Phone,Order1.id
+FROM Customer
+FULL OUTER JOIN Order1 ON Customer.Id=ORDER1.Customerid
+WHERE Phone='9999999999'
+2. fetching all the products which are available under Category ‘Seafood’.
+select *from Product
+where category='ok'
+3.Display the orders placed by customers not in London
+SELECT CUSTOMER.country,Order1.id
+FROM Customer
+FULL OUTER JOIN Order1 ON Customer.Id=ORDER1.Customerid
+WHERE country!='uk'
+
+4.selects all the order which are placed for the product Chai.
+SELECT * FROM Product
+WHERE ProductName ='CHAI'
+5.Write a query to display the name , department name and rating  of any given employee
+SELECT E.NAME AS EMP_NAME , D.DeptName AS DEPT_NAME,E.RATING
+FROM Employee E INNER JOIN Dept D
+ON E.DEPTID=D.DEPTID
