@@ -1,0 +1,64 @@
+
+
+	1.Desgin the above database with following table by applying Primary key and Foreign key
+Create table customer(Id int Primary key,
+	FirstName nvarchar(40),
+	LastName nvarchar(40),
+	City nvarchar(40),
+	Country nvarchar(40),
+	Phone nvarchar(20),
+	);
+	create index IndexCustomerName on Customer(FirstName);
+
+	
+	Create table Order1(
+	Id int Primary key,
+	OrderDate datetime,
+	OrderNumber nvarchar(10),
+	CustomerId int foreign key references Customer(Id),
+	TotalAmmount decimal(12,2)
+	);
+	create index IndexOrderCustomerId on Order(CustomerId);
+	create index IndexOrderOrderDate on Order(OrderDate);
+
+	
+	Create table Product(
+	Id int Primary key,
+	ProductName nvarchar(50),
+	UnitPrice decimal(12,2),
+	Package nvarchar(30),
+	IsDiscontinued bit
+	);
+
+	Create table OrderItem (
+	Id int Primary key,
+	OrderId int foreign key references [Order](Id),
+	ProductId int foreign key references Product(Id),
+	UnitPrice decimal(12,2),
+	Quntity int
+	);
+	create index IndexOrderItemOrderId on OrderItem(OrderId) ;
+	create index IndexOrderItemProductId on OrderItem(ProductId) ;
+
+
+Insert Records in tables :-
+
+insert into Customer(id,FirstName,Lastname,City,Country,Phone) values
+
+('1','Shivam','kalyani','pune','uk','90909090'),
+('2','Sagar','kalyani','pune','uk','90909090'),
+('3','rohan','kalyani','pune','uk','90909090')
+
+In Customer table FirstName Attributes should not accept null value :-
+CREATE Table Customer (Id int Primary Key, FirstName nvarchar(40) NOT NULL, LastName nvarchar(40), City nvarchar(40),Country nvarchar(40).Phone nvarchar(20))
+
+In Order table OrderDate should not accept null value :-
+CREATE TABLE order1 (Id int Primary Key, OrderDate datetime NOT NULL,OrderNumber nvarchar(10),CustomerID int Foreign Key references customer(id),TotalAmount decimal (12,2))
+Display all Customer Details :-
+Select * from customer
+Write a query to display Country whose name starts with A or I :-
+select *from Customer
+where Lastname LIKE 'A%' or Country LIKE 'I%'
+Write a query to display whose name of customer whose third character is I :-
+select *from Customer
+where FirstName LIKE '__i%'
