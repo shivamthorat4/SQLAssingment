@@ -1,0 +1,30 @@
+Display the details from Customer table who is from country India
+select *from Customer
+where Country='India'
+Display the  full name of the employee  
+select 
+concat(FirstName,LastName)
+as NAME
+FROM Customer
+Display the  customer details  who has phone number
+select *from Customer
+where Phone='9999999999'
+Display the customer details whose name holds second letter as U
+select *from Customer
+where FirstName LIKE '_U%'
+Select order Details where unit price is greater than 10 and less than 20
+select *from OrderItem
+where UnitPrice between 10 and 20
+Display order details which contains order date and arrange the order by date
+select *from Order1
+order by  OrderDate
+Print the products supplied by 'Exotic Liquids'
+select *from Product
+where Package='Exotic Liquids'
+Print the average quantity ordered for every product
+select avg(Quantity)
+from OrderItem
+Print the Total price of orders which have the products supplied by 'Exotic Liquids' if the price is > 50 and also print it by Shipping company's Name
+select *from Product
+where Package='ok' and UnitPrice>=300
+
